@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>SharedTypeSystem</name>
+  <description>A sharede type system for the NER pipeline</description>
+  <version>1.0</version>
+  <vendor>Phani Gadde</vendor>
+  <types>
+    <typeDescription>
+      <name>Text</name>
+      <description>Text in each line</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>Segment</name>
+      <description>Each segment that is given a named entity</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>Word</name>
+      <description>Each Word in the text</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>Line</name>
+      <description>Each line in the input</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>TextID</name>
+      <description>Identifier for each line in the input </description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
