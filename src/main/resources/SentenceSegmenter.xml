@@ -19,8 +19,12 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
-        <outputs/>
+        <inputs>
+          <type allAnnotatorFeatures="true">Text</type>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">SegmentedText</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

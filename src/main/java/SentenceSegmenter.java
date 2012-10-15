@@ -1,6 +1,14 @@
+import java.io.StringReader;
+
 import org.apache.uima.analysis_component.Annotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.AbstractCas;
+
+import edu.stanford.nlp.objectbank.TokenizerFactory;
+import edu.stanford.nlp.process.PTBTokenizer.PTBTokenizerFactory;
+import edu.stanford.nlp.process.Tokenizer;
+import edu.stanford.nlp.ling.Word;
+
 
 /**
  * 
@@ -12,12 +20,6 @@ import org.apache.uima.cas.AbstractCas;
  */
 public class SentenceSegmenter extends Annotator_ImplBase {
 
-  /**
-   * 
-   */
-  public SentenceSegmenter() {
-    
-  }
 
   /* (non-Javadoc)
    * @see org.apache.uima.analysis_component.AnalysisComponent#getRequiredCasInterface()
@@ -33,16 +35,11 @@ public class SentenceSegmenter extends Annotator_ImplBase {
    */
   @Override
   public void process(AbstractCas arg0) throws AnalysisEngineProcessException {
-    
-
-  }
-
-  /**
-   * @param args
-   */
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
-
+    Text T = (Text) arg0;
+    String text = T.getContent();
+    TokenizerFactory<Word> factory = PTBTokenizerFactory.newTokenizerFactory();
+    Tokenizer<Word> tokenizer = factory.getTokenizer(new StringReader(text));
+    System.out.println(tokenizer.tokenize());
   }
 
 }
