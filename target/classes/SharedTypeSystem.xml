@@ -1,81 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?><typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <name>SharedTypeSystem</name>
   <description>A sharede type system for the NER pipeline</description>
   <version>1.0</version>
   <vendor>Phani Gadde</vendor>
   <types>
     <typeDescription>
-      <name>Text</name>
-      <description>Text in each line</description>
+      <name>Sentence</name>
+      <description>Something that represents a sentence and its ID</description>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
-        <featureDescription>
-          <name>content</name>
-          <description>the content of the text</description>
-          <rangeTypeName>uima.cas.String</rangeTypeName>
-        </featureDescription>
         <featureDescription>
           <name>id</name>
-          <description>Text ID</description>
+          <description>Something that holds the ID</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>text</name>
+          <description>The text of the sentence</description>
           <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
-      <name>Segment</name>
-      <description>Each segment that is given a named entity</description>
+      <name>Gene</name>
+      <description>The Gene Chunk</description>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
         <featureDescription>
           <name>content</name>
-          <description>A sequence of words, that constitutes a segment</description>
-          <rangeTypeName>uima.cas.StringList</rangeTypeName>
-          <multipleReferencesAllowed>false</multipleReferencesAllowed>
-        </featureDescription>
-      </features>
-    </typeDescription>
-    <typeDescription>
-      <name>Word</name>
-      <description>Each Word in the text</description>
-      <supertypeName>uima.tcas.Annotation</supertypeName>
-      <features>
-        <featureDescription>
-          <name>content</name>
-          <description>word content</description>
-          <rangeTypeName>uima.cas.String</rangeTypeName>
-        </featureDescription>
-      </features>
-    </typeDescription>
-    <typeDescription>
-      <name>Segments</name>
-      <description>List of segments</description>
-      <supertypeName>uima.tcas.Annotation</supertypeName>
-      <features>
-        <featureDescription>
-          <name>content</name>
-          <description>list of segments</description>
-          <rangeTypeName>uima.cas.FSList</rangeTypeName>
-          <elementType>Segment</elementType>
-          <multipleReferencesAllowed>false</multipleReferencesAllowed>
-        </featureDescription>
-      </features>
-    </typeDescription>
-    <typeDescription>
-      <name>SegmentedText</name>
-      <description>The text segmented into words</description>
-      <supertypeName>uima.tcas.Annotation</supertypeName>
-      <features>
-        <featureDescription>
-          <name>content</name>
-          <description>List of segmented words</description>
-          <rangeTypeName>uima.cas.FSList</rangeTypeName>
-          <elementType>Word</elementType>
-          <multipleReferencesAllowed>false</multipleReferencesAllowed>
-        </featureDescription>
-        <featureDescription>
-          <name>id</name>
-          <description>Text ID</description>
+          <description>The content of the Gene</description>
           <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
       </features>

@@ -75,7 +75,7 @@ public class FileSystemCollectionReader extends CollectionReader_ImplBase {
       }
       reader = new BufferedReader(new FileReader(((String) getConfigParameterValue(PARAM_INPUTFILE)).trim()));
       currentIndex = 0;
-      System.out.println("Hehe fileSize:"+fileSize);
+      //System.out.println("Hehe fileSize:"+fileSize);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     } catch (IOException e) {
@@ -88,7 +88,7 @@ public class FileSystemCollectionReader extends CollectionReader_ImplBase {
    * @see org.apache.uima.collection.CollectionReader#hasNext()
    */
   public boolean hasNext() {
-    System.out.println("hehe in hasNext "+currentIndex+" "+fileSize+" "+(currentIndex < fileSize));
+    //System.out.println("hehe in hasNext "+currentIndex+" "+fileSize+" "+(currentIndex < fileSize));
     return currentIndex < fileSize;
   }
 
@@ -108,7 +108,7 @@ public class FileSystemCollectionReader extends CollectionReader_ImplBase {
       // put document in CAS
     jcas.setDocumentText(text);
     currentIndex += 1;
-    System.out.println("hehe in getNext "+currentIndex);
+    //System.out.println("hehe in getNext "+currentIndex);
   }
 
   /**

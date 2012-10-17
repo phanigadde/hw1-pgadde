@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpeDescription>
+  <collectionReader>
+    <collectionIterator>
+      <descriptor>
+        <include href="src/main/resources/FileSystemCollectionReader.xml"/>
+      </descriptor>
+    </collectionIterator>
+  </collectionReader>
+  <casProcessors dropCasOnException="true" casPoolSize="1" processingUnitThreadCount="1">
+    <casProcessor deployment="integrated" name="Sentence and ID separator">
+      <descriptor>
+        <include href="src/main/resources/IdTextSeparator.xml"/>
+      </descriptor>
+      <deploymentParameters/>
+      <filter/>
+      <errorHandling>
+        <errorRateThreshold action="terminate" value="100/1000"/>
+                <maxConsecutiveRestarts action="terminate" value="30"/>
+                <timeout max="100000"/>
+      </errorHandling>
+    </casProcessor>
+    <casProcessor deployment="integrated" name="NER Chunk finder">
+      <descriptor>
+        <include href="src/main/resources/NERChunker.xml"/>
+      </descriptor>
+      <deploymentParameters/>
+      <filter/>
+      <errorHandling>
+        <errorRateThreshold action="terminate" value="100/1000"/>
+                <maxConsecutiveRestarts action="terminate" value="30"/>
+                <timeout max="100000"/>
+      </errorHandling>
+    </casProcessor>
+    <casProcessor deployment="integrated" name="NER Printer">
+      <descriptor>
+        <include href="src/main/resources/NERPrinter.xml"/>
+      </descriptor>
+      <deploymentParameters/>
+      <filter/>
+      <errorHandling>
+        <errorRateThreshold action="terminate" value="100/1000"/>
+        <maxConsecutiveRestarts action="terminate" value="30"/>
+        <timeout max="100000"/>
+      </errorHandling>
+    </casProcessor>
+  </casProcessors>
+  <cpeConfig>
+    <numToProcess>-1</numToProcess>
+    <deployAs>immediate</deployAs>
+    <checkpoint file="" time="3000"/>
+    <timerImpl/>
+  </cpeConfig>
+</cpeDescription>
