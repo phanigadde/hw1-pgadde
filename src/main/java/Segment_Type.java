@@ -13,7 +13,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** Each segment that is given a named entity
- * Updated by JCasGen Sun Oct 14 22:09:42 EDT 2012
+ * Updated by JCasGen Tue Oct 16 20:31:51 EDT 2012
  * @generated */
 public class Segment_Type extends Annotation_Type {
   /** @generated */

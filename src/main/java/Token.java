@@ -1,25 +1,24 @@
 
 
-/* First created by JCasGen Sun Oct 14 20:05:29 EDT 2012 */
+/* First created by JCasGen Tue Oct 16 20:31:26 EDT 2012 */
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
 import org.apache.uima.jcas.tcas.Annotation;
-import org.apache.uima.jcas.cas.IntegerList;
 
 
-/** Each Word in the text
- * Updated by JCasGen Tue Oct 16 20:31:51 EDT 2012
- * XML source: /home/phani/Work/EclipseWS/W2/GIT/hw1-pgadde/src/main/resources/SharedTypeSystem.xml
+/** A word
+ * Updated by JCasGen Tue Oct 16 20:31:26 EDT 2012
+ * XML source: /home/phani/Work/EclipseWS/W2/GIT/hw1-pgadde/src/main/resources/SimpleTypeSystem.xml
  * @generated */
-public class Word extends Annotation {
+public class Token extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(Word.class);
+  public final static int typeIndexID = JCasRegistry.register(Token.class);
   /** @generated
    * @ordered 
    */
@@ -31,23 +30,23 @@ public class Word extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected Word() {/* intentionally empty block */}
+  protected Token() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated */
-  public Word(int addr, TOP_Type type) {
+  public Token(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
   
   /** @generated */
-  public Word(JCas jcas) {
+  public Token(JCas jcas) {
     super(jcas);
     readObject();   
   } 
 
   /** @generated */  
-  public Word(JCas jcas, int begin, int end) {
+  public Token(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -65,19 +64,19 @@ public class Word extends Annotation {
   //*--------------*
   //* Feature: content
 
-  /** getter for content - gets word content
+  /** getter for content - gets the content of the string
    * @generated */
   public String getContent() {
-    if (Word_Type.featOkTst && ((Word_Type)jcasType).casFeat_content == null)
-      jcasType.jcas.throwFeatMissing("content", "Word");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((Word_Type)jcasType).casFeatCode_content);}
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_content == null)
+      jcasType.jcas.throwFeatMissing("content", "Token");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_content);}
     
-  /** setter for content - sets word content 
+  /** setter for content - sets the content of the string 
    * @generated */
   public void setContent(String v) {
-    if (Word_Type.featOkTst && ((Word_Type)jcasType).casFeat_content == null)
-      jcasType.jcas.throwFeatMissing("content", "Word");
-    jcasType.ll_cas.ll_setStringValue(addr, ((Word_Type)jcasType).casFeatCode_content, v);}    
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_content == null)
+      jcasType.jcas.throwFeatMissing("content", "Token");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_content, v);}    
   }
 
     

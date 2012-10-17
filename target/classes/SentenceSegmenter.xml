@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
   <annotatorImplementationName>SentenceSegmenter</annotatorImplementationName>
@@ -12,7 +11,7 @@
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-        <import name="SharedTypeSystem"/>
+        <import location="SimpleTypeSystem.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>
@@ -20,10 +19,10 @@
     <capabilities>
       <capability>
         <inputs>
-          <type allAnnotatorFeatures="true">Text</type>
+          <type allAnnotatorFeatures="true">uima.tcas.DocumentAnnotation</type>
         </inputs>
         <outputs>
-          <type allAnnotatorFeatures="true">SegmentedText</type>
+          <type allAnnotatorFeatures="true">Word</type>
         </outputs>
         <languagesSupported/>
       </capability>

@@ -12,8 +12,8 @@ import org.apache.uima.jcas.cas.IntegerList;
 
 
 /** Each segment that is given a named entity
- * Updated by JCasGen Sun Oct 14 22:09:42 EDT 2012
- * XML source: /usr0/home/pgadde/EclipseWorkspaces/SE/hw1-pgadde/src/main/resources/collectionReaderDescriptor.xml
+ * Updated by JCasGen Tue Oct 16 20:31:51 EDT 2012
+ * XML source: /home/phani/Work/EclipseWS/W2/GIT/hw1-pgadde/src/main/resources/SharedTypeSystem.xml
  * @generated */
 public class Segment extends Annotation {
   /** @generated

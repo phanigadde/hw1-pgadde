@@ -1,45 +1,39 @@
-import java.io.StringReader;
-
-import org.apache.uima.analysis_component.Annotator_ImplBase;
+import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
-import org.apache.uima.cas.AbstractCas;
+import org.apache.uima.jcas.JCas;
 
 import edu.stanford.nlp.objectbank.TokenizerFactory;
 import edu.stanford.nlp.process.PTBTokenizer.PTBTokenizerFactory;
 import edu.stanford.nlp.process.Tokenizer;
 import edu.stanford.nlp.ling.Word;
-
+import java.io.StringReader;
+import java.util.ArrayList;
 
 /**
  * 
  */
 
 /**
- * @author pgadde
+ * @author phani
  *
  */
-public class SentenceSegmenter extends Annotator_ImplBase {
-
+public class SentenceSegmenter extends JCasAnnotator_ImplBase {
 
   /* (non-Javadoc)
-   * @see org.apache.uima.analysis_component.AnalysisComponent#getRequiredCasInterface()
+   * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
    */
   @Override
-  public Class<? extends AbstractCas> getRequiredCasInterface() {
+  public void process(JCas aJCas) throws AnalysisEngineProcessException {
     
-    return null;
-  }
-
-  /* (non-Javadoc)
-   * @see org.apache.uima.analysis_component.AnalysisComponent#process(org.apache.uima.cas.AbstractCas)
-   */
-  @Override
-  public void process(AbstractCas arg0) throws AnalysisEngineProcessException {
-    Text T = (Text) arg0;
-    String text = T.getContent();
+    String text = aJCas.getDocumentText();
     TokenizerFactory<Word> factory = PTBTokenizerFactory.newTokenizerFactory();
     Tokenizer<Word> tokenizer = factory.getTokenizer(new StringReader(text));
-    System.out.println(tokenizer.tokenize());
+    ArrayList<Word> tokens = (ArrayList<Word>) tokenizer.tokenize();
+    for (Word w:tokens) {
+      Token T = new Token(aJCas);
+      T.setContent(w.word());
+      T.addToIndexes();
+    }
   }
 
 }
