@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <implementationName>FileSystemCollectionReader</implementationName>
+  <processingResourceMetaData>
+    <name>File System Collection Reader</name>
+    <description>Reads from the given input file from the file system and adds each sentence to the CAS.</description>
+    <version>1.0</version>
+    <vendor>Phani Gadde</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>InputFile</name>
+        <description>Input file name</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>InputFile</name>
+        <value>
+          <string>hw1.in</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs/>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <outputsNewCASes>true</outputsNewCASes>
+    </operationalProperties>
+  </processingResourceMetaData>
+</collectionReaderDescription>

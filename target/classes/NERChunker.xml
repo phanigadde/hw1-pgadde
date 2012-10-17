@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>NERChunker</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>Gene Chunker</name>
+    <description>Uses Lingpipe trained on Bio data to do Chunking</description>
+    <version>1.0</version>
+    <vendor>Phani Gadde</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>modelFile</name>
+        <description>The Lingpipe modelfile</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>modelFile</name>
+        <value>
+          <string>src/main/resources/data/ne-en-bio-genetag.HmmChunker</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import location="SharedTypeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type allAnnotatorFeatures="true">Sentence</type>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">Gene</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

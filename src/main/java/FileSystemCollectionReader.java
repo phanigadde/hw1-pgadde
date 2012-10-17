@@ -1,23 +1,7 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+/**
+ * @author phani
  * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
  */
-
-
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -58,37 +42,44 @@ public class FileSystemCollectionReader extends CollectionReader_ImplBase {
   public static final String PARAM_INPUTFILE = "InputFile";
 
   private BufferedReader reader;
+
   private int fileSize;
+
   private int currentIndex;
-  
+
   /**
-   * @see org.apache.uima.collection.CollectionReader_ImplBase#initialize()
+   * @see org.apache.uima.collection.CollectionReader_ImplBase#initialize() Iterates over the
+   *      document text first to know the number of sentences. That count is used in hasNext(). 
+   *      The file pointer is then reset to the file beginning
    */
   public void initialize() throws ResourceInitializationException {
     try {
-      reader = new BufferedReader(new FileReader(((String) getConfigParameterValue(PARAM_INPUTFILE)).trim()));
+      reader = new BufferedReader(new FileReader(
+              ((String) getConfigParameterValue(PARAM_INPUTFILE)).trim()));
       String line = reader.readLine();
       fileSize = 0;
-      while (line!=null) {
+      while (line != null) {
         fileSize += 1;
         line = reader.readLine();
       }
-      reader = new BufferedReader(new FileReader(((String) getConfigParameterValue(PARAM_INPUTFILE)).trim()));
+      reader = new BufferedReader(new FileReader(
+              ((String) getConfigParameterValue(PARAM_INPUTFILE)).trim()));
       currentIndex = 0;
-      //System.out.println("Hehe fileSize:"+fileSize);
+      // System.out.println("Hehe fileSize:"+fileSize);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
     }
-    
+
   }
-  
+
   /**
    * @see org.apache.uima.collection.CollectionReader#hasNext()
    */
   public boolean hasNext() {
-    //System.out.println("hehe in hasNext "+currentIndex+" "+fileSize+" "+(currentIndex < fileSize));
+    // System.out.println("hehe in hasNext "+currentIndex+" "+fileSize+" "+(currentIndex <
+    // fileSize));
     return currentIndex < fileSize;
   }
 
@@ -105,10 +96,9 @@ public class FileSystemCollectionReader extends CollectionReader_ImplBase {
 
     // open input stream to file
     String text = reader.readLine();
-      // put document in CAS
+    // put document in CAS
     jcas.setDocumentText(text);
-    currentIndex += 1;
-    //System.out.println("hehe in getNext "+currentIndex);
+    currentIndex += 1; //Incrementing the index;
   }
 
   /**

@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <implementationName>NERPrinter</implementationName>
   <processingResourceMetaData>
-    <name>Annotation Printer</name>
-    <description>Prints annotations.</description>
+    <name>NER Printer</name>
+    <description>Prints Gene annotations.</description>
     <version>1.0</version>
     <vendor>The Apache Software Foundation</vendor>
     <configurationParameters searchStrategy="language_fallback">
@@ -19,7 +20,7 @@
       <nameValuePair>
         <name>outputFile</name>
         <value>
-          <string>/home/phani/Work/EclipseWS/W2/GIT/hw1-pgadde/src/main/resources/data/mySample.out</string>
+          <string>hw1-pgadde.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

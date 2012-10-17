@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <name>SharedTypeSystem</name>
-  <description>A sharede type system for the NER pipeline</description>
+  <description>A sharede type system for the NER pipeline. Has a Sentence and a Gene type.</description>
   <version>1.0</version>
   <vendor>Phani Gadde</vendor>
   <types>

@@ -43,6 +43,7 @@
         <maxConsecutiveRestarts action="terminate" value="30"/>
         <timeout max="100000"/>
       </errorHandling>
+      <checkpoint batch="1000"/>
     </casProcessor>
   </casProcessors>
   <cpeConfig>

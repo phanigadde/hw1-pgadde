@@ -36,23 +36,21 @@ import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
 
 /**
- * An example of CAS Consumer. <br>
- * AnnotationPrinter prints to an output file all annotations in the CAS. <br>
- * Parameters needed by the AnnotationPrinter are
+ * NERPrinter prints all the Gene entities in the CAS to the outputFile. <br>
+ * Parameters needed are
  * <ol>
  * <li>"outputFile" : file to which the output files should be written.</li>
  * </ol>
  * <br>
  * These parameters are set in the initialize method to the values specified in the descriptor file. <br>
- * These may also be set by the application by using the setConfigParameterValue methods.
- * 
- * 
  */
 
 public class NERPrinter extends CasConsumer_ImplBase implements CasObjectProcessor {
   File outFile;
 
   FileWriter fileWriter;
+
+  private int status;
 
   public NERPrinter() {
   }
@@ -67,6 +65,7 @@ public class NERPrinter extends CasConsumer_ImplBase implements CasObjectProcess
 
     // extract configuration parameter settings
     String oPath = (String) getUimaContext().getConfigParameterValue("outputFile");
+    status = 0;
 
     // Output file should be specified in the descriptor
     if (oPath == null) {
@@ -109,16 +108,16 @@ public class NERPrinter extends CasConsumer_ImplBase implements CasObjectProcess
       throw new ResourceProcessException(e);
     }
 
-    FSIndex senIndex = jcas.getAnnotationIndex(Sentence.type);
+    FSIndex senIndex = jcas.getAnnotationIndex(Sentence.type); // There will be only one sentence
+                                                               // though
     Iterator I = senIndex.iterator();
     while (I.hasNext()) {
       Sentence S = (Sentence) I.next();
       String id = S.getId();
-      System.out.println("Sentence:"+S);
       Iterator annotationIter = jcas.getAnnotationIndex(Gene.type).iterator();
       while (annotationIter.hasNext()) {
         Gene G = (Gene) annotationIter.next();
-        System.out.println("Gene:"+G);
+        // System.out.println("Gene:"+G);
         String text = G.getContent();
         int start = G.getBegin();
         int end = G.getEnd();
@@ -127,31 +126,25 @@ public class NERPrinter extends CasConsumer_ImplBase implements CasObjectProcess
         } catch (IOException e) {
           throw new ResourceProcessException(e);
         }
-      }
-      try {
-        fileWriter.write("\n");
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+      }/*
+        * try { fileWriter.write("\n"); } catch (IOException e) { e.printStackTrace(); }
+        */
     }
+    status += 1;
   }
 
   /**
    * Called when a batch of processing is completed.
-   * 
+   * Used here to print the progress
    * @param aTrace
    *          ProcessTrace object that will log events in this method.
    * @throws ResourceProcessException
    *           if there is an error in processing the Resource
-   * @throws IOException
-   *           if there is an IO Error
-   * 
    * @see org.apache.uima.collection.CasConsumer#batchProcessComplete(ProcessTrace)
    */
   public void batchProcessComplete(ProcessTrace aTrace) throws ResourceProcessException,
           IOException {
-    // nothing to do in this case as AnnotationPrinter doesnot do
-    // anything cumulatively
+    System.out.println("No. of documents processed:" + status);
   }
 
   /**
