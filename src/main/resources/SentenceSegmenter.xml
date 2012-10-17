@@ -5,8 +5,8 @@
   <analysisEngineMetaData>
     <name>Sentence Segmenter</name>
     <description>Segments a given text into words. So, works on each sentence in the text. Assumes that the text is sentence segmented.</description>
-    <version/>
-    <vendor/>
+    <version>1.0</version>
+    <vendor>Phani Gadde</vendor>
     <configurationParameters/>
     <configurationParameterSettings/>
     <typeSystemDescription>
@@ -18,11 +18,9 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs>
-          <type allAnnotatorFeatures="true">uima.tcas.DocumentAnnotation</type>
-        </inputs>
+        <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">Word</type>
+          <type allAnnotatorFeatures="true">Token</type>
         </outputs>
         <languagesSupported/>
       </capability>

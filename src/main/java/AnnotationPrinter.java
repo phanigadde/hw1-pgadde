@@ -111,31 +111,20 @@ public class AnnotationPrinter extends CasConsumer_ImplBase implements CasObject
       throw new ResourceProcessException(e);
     }
 
-    boolean titleP = false;
-    // iterate and print annotations
-    Iterator annotationIter = jcas.getAnnotationIndex().iterator();
+    Iterator annotationIter = jcas.getAnnotationIndex(Token.type).iterator();
     while (annotationIter.hasNext()) {
-      Annotation annot = (Annotation) annotationIter.next();
-      if (titleP == false) {
+      Token T = (Token) annotationIter.next();
+        String text = T.getContent();
         try {
-          fileWriter.write("\n\n<++++NEW DOCUMENT++++>\n");
-          fileWriter.write("\n");
-        } catch (IOException e) {
-          throw new ResourceProcessException(e);
-        }
-        titleP = true;
-      }
-      // get the text that is enclosed within the annotation in the CAS
-      String aText = annot.getCoveredText();
-      aText = aText.replace('\n', ' ');
-      aText = aText.replace('\r', ' ');
-      // System.out.println( annot.getType().getName() + " "+aText);
-      try {
-        fileWriter.write(annot.getType().getName() + " " + aText + "\n");
-        fileWriter.flush();
-      } catch (IOException e) {
+          fileWriter.write(text+"::");
+        }  catch (IOException e) {
         throw new ResourceProcessException(e);
       }
+    }
+    try {
+      fileWriter.write("\n");
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 

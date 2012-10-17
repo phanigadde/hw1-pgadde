@@ -32,6 +32,8 @@ public class SentenceSegmenter extends JCasAnnotator_ImplBase {
     for (Word w:tokens) {
       Token T = new Token(aJCas);
       T.setContent(w.word());
+      T.setBegin(0);
+      T.setEnd(0);
       T.addToIndexes();
     }
   }

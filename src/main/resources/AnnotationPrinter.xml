@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>org.apache.uima.examples.cpe.AnnotationPrinter</implementationName>
+  <implementationName>AnnotationPrinter</implementationName>
   <processingResourceMetaData>
     <name>Annotation Printer</name>
     <description>Prints annotations.</description>
@@ -19,7 +19,7 @@
       <nameValuePair>
         <name>outputFile</name>
         <value>
-          <string>../data/myOutput.txt</string>
+          <string>/home/phani/Work/EclipseWS/W2/GIT/hw1-pgadde/src/main/resources/data/myOutput.txt</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
