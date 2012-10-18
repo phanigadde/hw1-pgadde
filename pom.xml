@@ -111,7 +111,7 @@
     </dependency>
   </dependencies>
   <scm>
-  	<connection>scm:git:git@github.com/phanigadde/hw1-pgadde.git</connection>
-  	<developerConnection>scm:git:git@github.com/phanigadde/hw1-pgadde.git</developerConnection>
+  	<connection>scm:git:git@github.com:phanigadde/hw1-pgadde.git</connection>
+  	<developerConnection>scm:git:git@github.com:phanigadde/hw1-pgadde.git</developerConnection>
   </scm>
 </project>
