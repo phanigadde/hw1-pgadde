@@ -3,14 +3,14 @@
   <collectionReader>
     <collectionIterator>
       <descriptor>
-        <include href="src/main/resources/FileSystemCollectionReader.xml"/>
+        <include href="FileSystemCollectionReader.xml"/>
       </descriptor>
     </collectionIterator>
   </collectionReader>
   <casProcessors dropCasOnException="true" casPoolSize="1" processingUnitThreadCount="1">
     <casProcessor deployment="integrated" name="Sentence and ID separator">
       <descriptor>
-        <include href="src/main/resources/IdTextSeparator.xml"/>
+        <include href="IdTextSeparator.xml"/>
       </descriptor>
       <deploymentParameters/>
       <filter/>
@@ -22,7 +22,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="NER Chunk finder">
       <descriptor>
-        <include href="src/main/resources/NERChunker.xml"/>
+        <include href="NERChunker.xml"/>
       </descriptor>
       <deploymentParameters/>
       <filter/>
@@ -34,7 +34,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="NER Printer">
       <descriptor>
-        <include href="src/main/resources/NERPrinter.xml"/>
+        <include href="NERPrinter.xml"/>
       </descriptor>
       <deploymentParameters/>
       <filter/>
